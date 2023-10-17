@@ -1,0 +1,63 @@
+<mat-tab-group>
+
+  <mat-tab label="Allocation">
+  
+      <div class="list row">
+        <div class="col-md-8">
+          <div class="input-group mb-3">
+            <div class="input-group-append">
+              <button
+                class="btn btn-outline-secondary"
+                type="button"
+                (click)="searchId()"
+              >
+                Reset
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <h4>Lista de Allocations</h4>
+          <ul class="list-group">
+            <li
+              class="list-group-item"
+              *ngFor="let usuario of usuarios; let i = index"
+              [class.active]="i == currentIndex"
+              (click)="setActiveAllocation(usuario, i)"  >
+             {{ usuario.name}} - {{ usuario.email}} 
+            </li>
+          </ul>
+      
+          
+        </div>
+        <div class="col-md-6">
+          <div *ngIf="currentUsuario">
+            <h4>Usuario</h4>
+            <div>
+              <label><strong>Nome:</strong></label> {{ currentUsuario.name}}
+            </div>
+            <div>
+              <label><strong>Email:</strong></label> {{ currentUsuario.email}}
+            </div>
+            <div>
+              <label><strong>Senha:</strong></label> {{ currentUsuario.senha}}
+            </div>
+            <div>
+              <label><strong>Confirmar senha:</strong></label>{{ currentUsuario.confirmacaoSenha }}
+            </div>
+            
+              
+         
+          </div>
+      
+          <div *ngIf="!currentUsuario">
+            <br />
+            <p>favor clicar no nome do usuario...</p>
+          </div>
+        </div>
+      </div>
+  
+    
+  
+  </mat-tab>
+  </mat-tab-group>
